@@ -1,6 +1,7 @@
 export const initialStore=()=>{
   return{
     message: null,
+    recetas:[],
     todos: [
       {
         id: 1,
@@ -18,6 +19,12 @@ export const initialStore=()=>{
 
 export default function storeReducer(store, action = {}) {
   switch(action.type){
+    case 'add_receta':
+      return {
+        ...store,
+        recetas: [...store.recetas, action.payload]
+      };
+      
     case 'set_hello':
       return {
         ...store,
